@@ -117,6 +117,24 @@ public class Vegetable {
         } else {                    // all other cases
             this.calories = newCalories;
         }
-    }  
+    } 
+    
+    @Override
+    public String toString() {
+        String builder = "";
+
+        builder += "Name: ";
+        builder += this.getname();
+        builder += "\n";
+        builder += "weight: ";
+        builder += this.getweight();
+        builder += "\n";
+        builder += "Calories: ";
+        builder += this.getCalories();
+        builder += "\n";
+
+        return builder;
+
+    }
        
 }
