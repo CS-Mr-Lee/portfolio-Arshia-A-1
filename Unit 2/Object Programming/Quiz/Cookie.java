@@ -1,9 +1,12 @@
+
+
 /**
  * Name: Arshia
  * Date: March 1
  * Description: Cookie
  */
 public class Cookie {
+
     /**
      * attributes
      */
@@ -11,16 +14,16 @@ public class Cookie {
     // name of the Cookie
     private String name;
 
-    // amount of calories
+    // Cookie amount of calories
     private int calories;
 
-    // amount of weight
+    // Cookie amount of weight
     private double weight;
 
     // is it isPackaged or not
     private boolean isPackaged;
 
-    // Default constructor for our attributes
+    // Default constructor for our attributes (Cookie)
     public Cookie() {
         this.name = "";
         this.weight = -1;
@@ -29,18 +32,30 @@ public class Cookie {
 
     }
 
-    public Cookie(String name, double weight, int calories) {
+     /**
+     * Description: attributes of Cookie (single Cookie)
+     * 
+     * @param name       -> name of the Cookie
+     * @param calories   -> Amount of Calories of Cookie
+     * @param weight     -> Amount of weight of Cookie
+     */
+    public Cookie(String name, double weight, int calories) { 
 
         this.name = name;
+
         this.weight = weight;
+
         this.calories = calories;
+
+        this.isPackaged = false;
     }
 
     /**
-     * Description: attributes of Cookie 
-     * @param name -> name of the Cookie
-     * @param calories -> Amount of Calories
-     * @param weight -> Amount of weight
+     * Description: attributes of Cookie (Packed Cookies)
+     * 
+     * @param name       -> name of the Cookie
+     * @param calories   -> Amount of Calories of Cookie
+     * @param weight     -> Amount of weight of Cookie
      * @param isPackaged -> Cookies being packed or not
      */
     public Cookie(String name, int calories, double weight, boolean isPackaged) {
@@ -51,19 +66,7 @@ public class Cookie {
 
         this.weight = weight;
 
-        this.calories = calories; // lmitting the amount of colories user can type in (between 0 to 200)
-        if (calories < 0) {
-            this.calories = 0;
-        } else if (calories > 500) {
-            this.calories = 500
-            
-            
-            
-            
-            ;
-        } else {
-            this.calories = calories;
-        }
+        this.calories = calories; 
 
         this.isPackaged = isPackaged;
     }
@@ -109,27 +112,39 @@ public class Cookie {
     }
 
     /*
-    Mutators
-    */
-    public void Eaten (double newWeight) {
+     * Mutators
+     */
+    public int eaten (double newWeight) { // calculating the amount of calories being eaten by human
 
-        if (weight==0 || weight == -1) {
-             = -1;
-        } else if () {
-             = -2;
+        if (newWeight > this.weight) { 
+            return -1;
+        } else if (this.isPackaged) {
+            return -2;
         } else {
-            double Eatenweight = this.weight - weight;
+            double eatenweight = this.weight - newWeight;
 
+            double percentagetemp = this.weight / newWeight;
+            double percentage = percentagetemp / 100;
+            double tempCalories = this.calories * percentage;
+            double newCalories = tempCalories / 10;
+
+            return (int) newCalories;
         }
         
     }
-    public void notPackaged () { 
+
+    public void notPackaged() { // if its packed then the human cant eat the Cookies
         if (this.isPackaged) {
             this.isPackaged = false;
         }
-    } 
-    
+    }
 
+    /**
+     * Description: Overrides the default string builder method and returns a string
+     * with all attributes of the Cookie.
+     * 
+     * @return builder - a string that contains all the attributes of the Cookie
+     */
     @Override
     public String toString() {
         String builder = "";
@@ -152,3 +167,5 @@ public class Cookie {
     }
 
 }
+
+

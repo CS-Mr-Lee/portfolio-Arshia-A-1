@@ -13,21 +13,28 @@ public class Human {
     private String name;
 
     // energy of the human
-    private double energy;
+    private int energy;
 
     // amount of weight
     private double weight;
 
+    /**
+     * defult constructor 
+     */
     public Human() {
+        this.name = "";
+        this.energy = -1;
+        this.weight = -1;
     }
 
     /**
      * attributes of human
+     * 
      * @param name   -> name of the human
      * @param energy -> energy of the human
      * @param weight -> amount of weight
      */
-    public Human(String name, double energy, double weight) {
+    public Human(String name, int energy, double weight) {
         this.name = name;
         this.energy = energy;
         this.weight = weight;
@@ -52,7 +59,7 @@ public class Human {
      * 
      * @return the Energy
      */
-    public double getEnergy() {
+    public int getEnergy() {
         return this.energy;
     }
 
@@ -78,7 +85,7 @@ public class Human {
      */
     public void setWeight(double weight) {
         if (weight < 0) {
-            this.weight = 1;
+            this.weight = 50;
         } else {
             this.weight = weight;
         }
@@ -104,12 +111,11 @@ public class Human {
      * @param kilometers -> measurment of run
      */
     public void run(double kilometers) {
-        double km = 0;
-        while (km < kilometers) {
-            this.setWeight(this.getWeight() - 0.001);
-            this.setEnergy(this.getEnergy() * 0.05);
-            km++;
-        }
+
+        this.setEnergy((int) (this.getEnergy() * 3));
+
+        this.setWeight(this.getWeight() - 0.001 * kilometers);
+        
 
     }
 
@@ -118,8 +124,13 @@ public class Human {
      * 
      * @param energy - the energy of the human
      */
-    public void setEnergy(double energy) {
+    public void setEnergy(int energy) {
         this.energy = energy;
+    }
+
+    public void eat(Cookie food, double grams) {
+        this.weight = this.weight + grams;
+
     }
 
     /**
