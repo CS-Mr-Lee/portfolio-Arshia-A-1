@@ -39,11 +39,11 @@ public class Vegetable {
 
         this.weight = weight;
 
-        this.calories = calories; // lmitting the amount of colories user can type in (0 to 300)
+        this.calories = calories; // lmitting the amount of colories user can type in (0 to 500)
         if (calories < 0) {
             this.calories = 0;
-        } else if (calories > 300) {
-            this.calories = 300;
+        } else if (calories > 500) {
+            this.calories = 500;
         } else {
             this.calories = calories;
         }
@@ -83,61 +83,25 @@ public class Vegetable {
     /*
      * Mutators
      */
-    public int eaten (double newWeight) { // calculating the amount of calories being eaten by human
+    /**
+   * calculate if it is eaten or how much calories it gives
+   * @return -1 -> it means human didnt eat the vegetable
+   * @return calories eaten 
+   */
+    public int eaten(double newWeight) { // calculating the amount of calories being eaten by human
 
-        if (newWeight > this.weight) { 
+        if (newWeight > this.weight) {
             return -1;
         } else {
             double eatenweight = this.weight - newWeight;
 
             double percentagetemp = this.weight / newWeight;
             double percentage = percentagetemp / 100;
+            
             double tempCalories = this.calories * percentage;
             double newCalories = tempCalories / 10;
 
             return (int) newCalories;
-        }
-        
-    }
-
-    /**
-     * changes the weight of the meat cannot be less than 0 or greater than original
-     * weight
-     * 
-     * @param newWeight newWeight expected new weight
-     */
-    public void setWeight(double newWeight) {
-        // make it not bigger than original, must be > 0
-
-        if (newWeight > this.weight) {
-            this.weight = this.weight; // if newweight is more than original weight, it does not change the original weight
-                             
-        } else if (newWeight < 0) { // restriction from negative weight
-            this.weight = 0;
-        } else if (newWeight == 0) {
-            this.weight = 0;
-        } else { // all other cases
-            this.weight = newWeight;
-        }
-    }
-
-    /**
-     * changes the Calories of the vegetable; cannot be less than 0 or greater than
-     * original Calories
-     * 
-     * @param newCalories newCalories
-     */
-    public void setCalories(int newCalories) { // if newCalories is more than original calories, it does not
-        if (newCalories > this.calories) { // change the original calories
-            this.calories = this.calories;
-        } else if (newCalories < 0) {
-            this.calories = 0;
-        } else if (newCalories == 0) {
-            this.calories = 0;
-        } else if (newCalories > 200) {
-            this.calories = 200;
-        } else { // all other cases
-            this.calories = newCalories;
         }
 
     }

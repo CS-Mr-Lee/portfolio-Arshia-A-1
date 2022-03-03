@@ -1,7 +1,7 @@
 /**
  * Name: Arshia
  * Date: March 1
- * Description: Cookie
+ * Description: Human
  */
 public class Human {
 
@@ -19,7 +19,7 @@ public class Human {
     private double weight;
 
     /**
-     * defult constructor 
+     * Default constructor for our attributes (Human)
      */
     public Human() {
         this.name = "";
@@ -100,7 +100,7 @@ public class Human {
     public void sleep(double hours) {
         double SleepingEnergy;
 
-        SleepingEnergy = (hours * (10 / 100));
+        SleepingEnergy = (int)(hours * 10); // casting int to convert doubel to string 
         SleepingEnergy = energy;
 
     }
@@ -108,14 +108,13 @@ public class Human {
     /**
      * running will decreases weight and energy level
      * 
-     * @param kilometers -> measurment of run
+     * @param kilometers -> measurment of how many kilometers human run
      */
     public void run(double kilometers) {
 
         this.setEnergy((int) (this.getEnergy() * 3));
 
         this.setWeight(this.getWeight() - 0.001 * kilometers);
-        
 
     }
 
@@ -125,12 +124,61 @@ public class Human {
      * @param energy - the energy of the human
      */
     public void setEnergy(int energy) {
-        this.energy = energy;
+
+        if (100 > energy) {
+            this.energy = 100;
+        } else if (0 < energy) {
+            this.energy = 0;
+        } else { // energy must be between 0 to 100
+            this.energy = energy;
+        }
     }
 
+    /**
+     * calculate amount of new weight and new calories (Cookie)
+     * @param food  Cookie object
+     * @param grams amount of cookie that human ate
+     */
     public void eat(Cookie food, double grams) {
-        this.weight = this.weight + grams;
 
+        // if it is packed then the human cant eat the bag
+        if (food.getisPackaged()) {
+            System.out.println("I cant eat the bag");
+
+        } else if (food.getweight() < grams) { // if the amount of food the want to eat it greater; its not true because there is not that much food
+            System.out.println("Not enough food");
+
+        } else { 
+            this.weight = this.weight + grams; // getting fat (weight)
+
+            // calculating the amount of enrgy human is taking from eating (Cookie)
+            this.energy = this.energy + (int)((grams / food.getweight()) * food.getCalories());
+            this.energy = this.energy / 15;
+
+            setEnergy(this.energy);
+        }
+    }
+
+    /**
+     * calculate amount of new weight and new calories (Vegetable)
+     * @param grams amount of Vegetable that human ate
+     * @param vegi Vegetable object
+     */
+    public void eat(Vegetable vegi, double grams) {
+
+        //
+        if (vegi.getweight() < grams) { // if the amount of food the want to eat it greater; its not true because there is not that much food
+            System.out.println("Not enough food");
+
+        } else { 
+            this.weight = this.weight + grams; // getting fat (weight)
+
+            // calculating the amount of enrgy human is taking from eating (Vegetable)
+            this.energy = this.energy + (int)((grams / vegi.getweight()) * vegi.getCalories());
+            this.energy = this.energy / 15;
+
+            setEnergy(this.energy);
+        }
     }
 
     /**

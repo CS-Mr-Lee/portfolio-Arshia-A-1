@@ -1,5 +1,4 @@
 
-
 /**
  * Name: Arshia
  * Date: March 1
@@ -20,7 +19,7 @@ public class Cookie {
     // Cookie amount of weight
     private double weight;
 
-    // is it isPackaged or not
+    // is it Packaged or not
     private boolean isPackaged;
 
     // Default constructor for our attributes (Cookie)
@@ -32,14 +31,14 @@ public class Cookie {
 
     }
 
-     /**
-     * Description: attributes of Cookie (single Cookie)
+    /**
+     * Description: attributes of Cookie (4 attributes)
      * 
-     * @param name       -> name of the Cookie
-     * @param calories   -> Amount of Calories of Cookie
-     * @param weight     -> Amount of weight of Cookie
+     * @param name     -> name of the Cookie
+     * @param calories -> Amount of Calories of Cookie
+     * @param weight   -> Amount of weight of Cookie
      */
-    public Cookie(String name, double weight, int calories) { 
+    public Cookie(String name, double weight, int calories) {
 
         this.name = name;
 
@@ -51,7 +50,7 @@ public class Cookie {
     }
 
     /**
-     * Description: attributes of Cookie (Packed Cookies)
+     * Description: attributes of Cookie (3 attributes)
      * 
      * @param name       -> name of the Cookie
      * @param calories   -> Amount of Calories of Cookie
@@ -66,7 +65,7 @@ public class Cookie {
 
         this.weight = weight;
 
-        this.calories = calories; 
+        this.calories = calories;
 
         this.isPackaged = isPackaged;
     }
@@ -114,9 +113,17 @@ public class Cookie {
     /*
      * Mutators
      */
-    public int eaten (double newWeight) { // calculating the amount of calories being eaten by human
+    /**
+     * the method will calculate the amount of calories being eaten
+     * 
+     * @param weight the amount of weight removed from cookies
+     * @return -1 -> -1 meaning is that the cookies is not edible because weight is not more than weight of cookie
+     * @return -2 -> -2 meaning is that this cookies is not edible because it is in package (can eat bag)
+     * @return calories eaten
+     */
+    public int eaten(double newWeight) { // calculating the amount of calories being eaten by human
 
-        if (newWeight > this.weight) { 
+        if (newWeight > this.weight) {
             return -1;
         } else if (this.isPackaged) {
             return -2;
@@ -130,13 +137,7 @@ public class Cookie {
 
             return (int) newCalories;
         }
-        
-    }
 
-    public void notPackaged() { // if its packed then the human cant eat the Cookies
-        if (this.isPackaged) {
-            this.isPackaged = false;
-        }
     }
 
     /**
@@ -167,5 +168,3 @@ public class Cookie {
     }
 
 }
-
-
