@@ -39,7 +39,7 @@ public class Arena extends GameMode {
      * spawns boxes based on map
      * @param map -> the selected map to spawn boxes in
      */
-    public void spawnStuff(Map map) {
+    public void spawnBoxes(Map map) {
         if (map.getLocation() == "Sahara") {
             // if the map is in Sahara, then there are no boxes, since there's just sand
             this.boxes = 0;
