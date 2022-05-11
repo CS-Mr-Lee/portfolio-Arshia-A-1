@@ -1,10 +1,10 @@
 /**
- * Course: ICS4U1
+ * Course: ICS4U1s
  * Date: Apr. 29th, 2022
  * @author Arshia Akbaripour
-* Date: May 2, 2022
-* Description:game mode class which yyou can choose either battle royal or arena mode to play.
-*/
+ * Date: May 2, 2022
+ * Description: game mode class that you can choose either battle royal or arena mode to play.
+ */
 
 public class Map {
     /*

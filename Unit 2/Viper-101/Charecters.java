@@ -2,6 +2,7 @@
  * Course: ICS4U1
  * Date: Apr. 28th, 2022
  * @author Arshia Akbaripour
+ * Description: character class that is for characters info and their own unique attributes and quotes
  */
 
 import java.util.concurrent.TimeUnit;
@@ -10,24 +11,24 @@ public class Charecters {
     /*
     Attributes
     */
-    private int health; // charecter health
-    private String name; // charecter name
-    private String skill; // charecter skill
-    private String sex; // charecter sex
-    private int armor; // charecter armor
-    private String quote; // charecter quote
+    private int health; // character health
+    private String name; // character name
+    private String skill; // character skill
+    private String sex; // character sex
+    private int armor; // character armor
+    private String quote; // character quote
 
     /*
     Constructor
     */
     /**
-     * Discription : Attributes of charecter
-     * @param health -> amount of charecter health
-     * @param name -> name of the charecter
-     * @param skill -> skill name of charecter
-     * @param sex -> sex of charecter
-     * @param armor -> amont of charecter armor
-     * @param quote -> quote of charecter
+     * Discription : Attributes of character
+     * @param health -> amount of character health
+     * @param name -> name of the character
+     * @param skill -> skill name of character
+     * @param sex -> sex of character
+     * @param armor -> amont of character armor
+     * @param quote -> quote of character
      */
     public Charecters(int health, String name, String skill, String sex, int armor, String quote) {
 
@@ -43,11 +44,11 @@ public class Charecters {
     Accessors
     */
     public int getHealth() {return this.health;} // gets the amount of health
-    public String getName() {return this.name;} // gets name of charecter
-    public String getSkill() {return this.skill;} // gets skill name of charecter
-    public String getSex() {return this.sex;} // // gets sex of charecter
+    public String getName() {return this.name;} // gets name of character
+    public String getSkill() {return this.skill;} // gets skill name of character
+    public String getSex() {return this.sex;} // // gets sex of character
     public int getArmor() {return this.armor;} // gets the amount of armor
-    public String getQuote() {return this.quote;} // gets the quote of charecter
+    public String getQuote() {return this.quote;} // gets the quote of character
 
     public void setArmor(int armor) { // if armor is equal or below zero, it will be set to zero.
         if (armor <= 0) {
@@ -67,7 +68,7 @@ public class Charecters {
     /*
     Methods
     */
-    public void heal () { // if the health is less than 100, your charecter will heal up by 20 
+    public void heal () { // if the health is less than 100, your character will heal up by 20 
         if (this.health < 100 && this.health + 20 <= 100) { // if health is less than 100 and adding up 20 to health is equal or less than 100, user can heal up
             setHealth(this.health + 20);
             System.out.println("Wait a second! im healing");
@@ -77,7 +78,7 @@ public class Charecters {
         }
     } 
     
-    public void armorUp () { // if the armor is less than 50 , your charecter will armor up by 10
+    public void armorUp () { // if the armor is less than 50 , your character will armor up by 10
         if (this.armor < 50 && this.armor + 10 <= 50) {  // if armor is less than 50 and adding up 10 to armor is equal or less than 50, user can armor up
             setArmor(this.armor + 10);
             System.out.println("im shot! cover me im armoring up");
@@ -87,19 +88,19 @@ public class Charecters {
         }
     } 
 
-    public void useSkill () { // when ever charecter uses the skill, the special quote will play
+    public void useSkill () { // when ever character uses the skill, the special quote will play
         // audio file
         String filePath = "../Quotes/" + this.name + ".wav";
 
         // typing the characters' quote
-        System.out.printf("your Charecters used %s \n \n", this.skill);
+        System.out.printf("your characters used %s \n \n", this.skill);
         System.out.println(this.quote);
 
         // playing the characters' quote
         new PlayQuote(filePath);
     }
 
-    public void move () { // if the user wish to move the charecter, it prints two strings delayed by 2 seconds from each other
+    public void move () { // if the user wish to move the character, it prints two strings delayed by 2 seconds from each other
         try {
             System.out.println("You moved ..");
             TimeUnit.SECONDS.sleep(2);
@@ -111,10 +112,10 @@ public class Charecters {
 
     /**
      * Overrides the default string builder method and
-     * returns a string with all attributes of the charecter.
+     * returns a string with all attributes of the character.
      * 
      * @return builder - a string that contains all
-     *         . the attributes of the charecter
+     *         . the attributes of the character
      */
     public String toString() {
         String builder = "";

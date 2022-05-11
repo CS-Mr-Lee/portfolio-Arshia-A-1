@@ -12,6 +12,7 @@ public class Arena extends GameMode {
     */
     private int round;
     private int boxes;
+    
 
     /*
     Constructor
@@ -21,6 +22,7 @@ public class Arena extends GameMode {
 
         this.round   = round;
         this.boxes   = boxes;
+        
     }
 
     /*
@@ -32,6 +34,21 @@ public class Arena extends GameMode {
     /*
     Methods
     */
+
+    /**
+     * spawns boxes based on map
+     * @param map -> the selected map to spawn boxes in
+     */
+    public void spawnStuff(Map map) {
+        if (map.getLocation() == "Sahara") {
+            // if the map is in Sahara, then there are no boxes, since there's just sand
+            this.boxes = 0;
+        } else if (map.getLocation() == "Sweden") {
+            // if the map is in Sweden , then spawn boxes
+            this.boxes = 10;
+            
+        }
+    }
 
     public String toString() {
         String builder = super.toString();
